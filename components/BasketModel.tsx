@@ -79,7 +79,7 @@ const LoadedModel: React.FC = () => {
           mesh.material.roughnessMap = textures.roughnessMap;
           
           // Align tint with brand orange
-          mesh.material.color = new THREE.Color('#a8a4a4');
+          mesh.material.color = new THREE.Color('#c4b8b8');
           // Force material to use the full range of the maps
           mesh.material.metalness = 1;
           mesh.material.roughness = 1;
