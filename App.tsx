@@ -8,7 +8,15 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div className="relative w-full h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#2a2a2a] to-[#1a1a1a] overflow-hidden font-sans text-white">
+      <div
+        className="relative w-full h-screen overflow-hidden font-sans text-white"
+        style={{
+          backgroundImage: "url('/basketBackground.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <Navbar setView={setView} currentView={view} />
         
         {/* 3D Scene handles its own content based on view */}
