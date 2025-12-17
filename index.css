@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Russo One", sans-serif;
+
+  --color-brand-orange: #FF3D00;
+  --color-brand-dark: #1a1a1a;
+  --color-brand-grey: #2d2d2d;
+  --color-brand-light: #ffffff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-brand-dark);
+  color: white;
+  font-family: var(--font-sans);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+::selection {
+  background-color: var(--color-brand-orange);
+  color: white;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  color: transparent;
+}
+
+.text-stroke-orange {
+  -webkit-text-stroke: 1px rgba(255, 61, 0, 0.3);
+  color: transparent;
+}
