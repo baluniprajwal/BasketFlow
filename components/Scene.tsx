@@ -47,27 +47,30 @@ const Scene: React.FC<SceneProps> = ({ view }) => {
         <Suspense fallback={null}>
           <Environment preset="studio" />
           
-          {view === 'home' ? (
-            <ScrollControls pages={6} damping={0.15}>
-              <Scroll html style={{ width: '100%', height: '100%' }}>
-                <BackgroundOverlay />
-              </Scroll>
+          <ScrollControls pages={view === 'home' ? 6 : 1} damping={0.15} enabled={view === 'home'}>
+            {view === 'home' && (
+              <>
+                <Scroll html style={{ width: '100%', height: '100%' }}>
+                  <BackgroundOverlay />
+                </Scroll>
 
-              <ScrollableBasketModel />
+                <ScrollableBasketModel />
 
-              <Scroll html style={{ width: '100%', height: '100%' }}>
-                <ForegroundOverlay />
-              </Scroll>
-            </ScrollControls>
-          ) : (
-            // About Page View: Static Model + Background, no scroll controls
+                <Scroll html style={{ width: '100%', height: '100%' }}>
+                  <ForegroundOverlay />
+                </Scroll>
+              </>
+            )}
+          </ScrollControls>
+
+          {/* About Page static model stays mounted to avoid remount flicker */}
+          {view === 'about' && (
             <>
-               <group position={[3, 0, 0]}>
-                 <StaticBasketModel />
-               </group>
-               {/* Contact Shadow adjusted for the static position */}
-               <ContactShadows 
-                position={[3, -2, 0]} 
+              <group position={[2, 0, 0]}>
+                <StaticBasketModel />
+              </group>
+              <ContactShadows 
+                position={[2, -2, 0]} 
                 opacity={0.5} 
                 scale={20} 
                 blur={2.5} 

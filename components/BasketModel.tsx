@@ -153,7 +153,7 @@ export const StaticBasketModel: React.FC = () => {
       groupRef.current.rotation.y += delta * 0.5;
       groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
       groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
-      const targetScale = hovered ? 2.8 : 2.5;
+      const targetScale = hovered ? 7.2 : 7.1;
       groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
     });
     return (
