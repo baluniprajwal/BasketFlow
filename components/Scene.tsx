@@ -47,16 +47,21 @@ const Scene: React.FC<SceneProps> = ({ view }) => {
         <Suspense fallback={null}>
           <Environment preset="studio" />
           
-          <ScrollControls pages={view === 'home' ? 6 : 1} damping={0.15} enabled={view === 'home'}>
+          <ScrollControls
+            pages={view === 'home' ? 6 : 1}
+            damping={0.15}
+            enabled={view === 'home'}
+            style={{ touchAction: 'auto', overscrollBehavior: 'contain' }}
+          >
             {view === 'home' && (
               <>
-                <Scroll html style={{ width: '100%', height: '100%' }}>
+                <Scroll html style={{ width: '100%', height: '100%', touchAction: 'auto' }}>
                   <BackgroundOverlay />
                 </Scroll>
 
                 <ScrollableBasketModel />
 
-                <Scroll html style={{ width: '100%', height: '100%' }}>
+                <Scroll html style={{ width: '100%', height: '100%', touchAction: 'auto' }}>
                   <ForegroundOverlay />
                 </Scroll>
               </>
